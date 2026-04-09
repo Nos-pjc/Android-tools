@@ -1,0 +1,299 @@
+{
+  "日志调试": {
+    "D级日志": {
+      "name": "D级日志",
+      "description": "启用D级日志，设置相机调试参数",
+      "commands": [
+        "adb root",
+        "adb remount",
+        "adb shell \"start logd\"",
+        "adb shell setenforce 0",
+        "adb shell setprop persist.vendor.mtk.camera.log_level 3",
+        "adb shell setprop vendor.debug.camera.ulog.mode 2",
+        "adb shell setprop persist.vendor.debug.camera.log 3",
+        "adb shell \"setprop vendor.debug.camera.ulog.mode 0x11\"",
+        "adb shell \"setprop vendor.debug.camera.ulog.filter 0xfffff\"",
+        "adb shell \"setprop vendor.debug.camera.ulog.func 1\"",
+        "adb shell \"setprop vendor.mtk.c2.venc.async.systrace 1\"",
+        "adb shell \"setprop vendor.debug.hal3av3.systrace 1\"",
+        "adb shell \"setprop vendor.camera.gce_time_cmd.en 1\"",
+        "adb shell setprop persist.log.ratelimit 0",
+        "adb shell \"echo 8 > /proc/sys/kernel/printk\"",
+        "adb shell setprop vendor.debug.camera.log.pipeline.fbm 3",
+        "adb shell \"ps -e | grep camera* | awk '{print $2}' | xargs kill\"",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "日志调试",
+      "path": null
+    },
+    "PowerHAL日志": {
+      "name": "PowerHAL日志",
+      "description": "启用PowerHAL相关日志",
+      "commands": [
+        "adb root",
+        "adb shell \"setprop log.tag.libPowerHal D\"",
+        "adb shell \"setprop persist.log.tag.libPowerHal D\"",
+        "adb shell \"setprop log.tag.powerd D\"",
+        "adb shell \"setprop persist.log.tag.powerd D\"",
+        "adb shell \"setprop log.tag.mtkpower@1.0-impl D\"",
+        "adb shell \"setprop persist.log.tag.mtkpower@1.0-impl D\"",
+        "adb shell \"setprop log.tag.legacy_power@2.1-impl D\"",
+        "adb shell \"setprop persist.log.tag.legacy_power@2.1-impl D\"",
+        "adb shell \"setprop log.tag.power@1.3-impl D\"",
+        "adb shell \"setprop persist.log.tag.power@1.3-impl D\"",
+        "adb shell \"setprop log.tag.PowerWrap D\"",
+        "adb shell \"setprop persist.log.tag.PowerWrap D\"",
+        "adb shell \"setprop log.tag.mtkperf_client D\"",
+        "adb shell \"setprop persist.log.tag.mtkperf_client D\"",
+        "adb shell setprop persist.vendor.mtk.camera.log_level 3",
+        "adb shell \"ps -e | grep camera* | awk '{print $2}' | xargs kill\"",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "日志调试",
+      "path": null
+    },
+    "FD日志": {
+      "name": "FD日志",
+      "description": "启用人脸检测(FD)相关日志",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop vendor.debug.camera.fd.detail.log 1",
+        "adb shell setprop vendor.debug.camera.log.FDNode 1",
+        "adb shell setprop vendor.debug.fpipe.force.printio 1",
+        "adb shell setprop vendor.debug.tpi.s.log 1",
+        "adb shell setprop vendor.debug.mtkcam.p2.log 1",
+        "adb shell setprop vendor.debug.fpipe.force.printmdp 1",
+        "adb shell setprop vendor.debug.trace.p2.Cropper 1",
+        "adb shell setprop persist.vendor.mtk.camera.log_level 3",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "日志调试",
+      "path": null
+    },
+    "基础日志": {
+      "name": "基础日志",
+      "description": "启用基础相机日志和调试功能",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop persist.vendor.mtk.camera.log_level 3",
+        "adb shell setprop vendor.debug.camera.log 3",
+        "adb shell setprop vendor.debug.camera.log.p1node 3",
+        "adb shell setprop vendor.debug.camera.p1.dumpCrop 1",
+        "adb shell setprop debug.cam.drawid 1",
+        "adb shell setprop vendor.debug.aaa.pvlog.enable 1",
+        "adb shell pkill camera*",
+        "adb shell logcat -c"
+      ],
+      "warning": null,
+      "category": "日志调试",
+      "path": null
+    },
+    "Metadata日志": {
+      "name": "Metadata日志",
+      "description": "启用相机日志（针对Metadata下发调试）",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop persist.vendor.mtk.camera.log_level 3",
+        "adb shell setprop vendor.debug.camera.log 3",
+        "adb shell setprop vendor.debug.camera.log.p1node 3",
+        "adb shell setprop vendor.debug.camera.p1.dumpCrop 1",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "日志调试",
+      "path": null
+    }
+  },
+  "数据抓取": {
+    "ISP7抓取": {
+      "name": "ISP7抓取",
+      "description": "启用ISP7相机数据抓取",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop vendor.debug.camera.p2.dump 1",
+        "adb shell setprop vendor.debug.camera.img3o.dump 1",
+        "adb shell setprop vendor.debug.camera.dump.campipe 1",
+        "adb shell setprop vendor.debug.camera.dump.JpegNode 1",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "数据抓取",
+      "path": null
+    },
+    "ISP6S抓取": {
+      "name": "ISP6S抓取",
+      "description": "启用ISP6S相机数据抓取（包含jiigan_sdk）",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop vendor.debug.camera.p2.dump 1",
+        "adb shell setprop vendor.debug.camera.img3o.dump 1",
+        "adb shell setprop vendor.debug.camera.dump.campipe 1",
+        "adb shell setprop vendor.debug.camera.dump.JpegNode 1",
+        "adb shell mkdir /data/vendor/camera/jiigan_sdk_dump/ -p",
+        "adb shell setprop vendor.camera.siq.dump_input_output 1",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "数据抓取",
+      "path": null
+    },
+    "P2S输入输出": {
+      "name": "P2S输入输出",
+      "description": "抓取P2S节点输入输出数据",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop debug.cam.drawid 1",
+        "adb shell setprop vendor.debug.fpipe.force.img3o 1",
+        "adb shell rm -rf /data/vendor/camera_dump/*",
+        "adb shell setprop vendor.debug.p2f.dump.enable 1",
+        "adb shell setprop vendor.debug.p2f.dump.mode 1",
+        "adb shell setprop vendor.debug.camera.preview.dump 1",
+        "adb shell setprop vendor.debug.camera.dump.en 1",
+        "adb shell setprop vendor.debug.feature.forceEnableIMGO 1",
+        "adb shell setprop vendor.debug.camera.dump.p1.imgo 1",
+        "adb shell setprop vendor.debug.camera.p2.dump 1",
+        "adb shell setprop vendor.debug.camera.img3o.dump 1",
+        "adb shell setprop vendor.debug.camera.dump.campipe 1",
+        "adb shell setprop vendor.debug.camera.dump.JpegNode 1",
+        "adb shell pkill camera*"
+      ],
+      "warning": null,
+      "category": "数据抓取",
+      "path": null
+    },
+    "P2流节点": {
+      "name": "P2流节点",
+      "description": "抓取P2流节点数据",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop debug.cam.drawid 1",
+        "adb shell setprop vendor.debug.fpipe.force.img3o 1",
+        "adb shell rm -rf /data/vendor/camera_dump/*",
+        "adb shell rm -rf /data/vendor/dump/*",
+        "adb shell mkdir /data/vendor/dump",
+        "adb shell setprop vendor.debug.p2f.dump.enable 1",
+        "adb shell setprop vendor.debug.p2f.dump.mode 1",
+        "adb shell setprop vendor.debug.p2f.dump.in 0xff",
+        "adb shell setprop vendor.debug.p2f.dump.out 0xff",
+        "adb shell setprop vendor.debug.camera.preview.dump 1",
+        "adb shell setprop vendor.debug.camera.dump.en 1",
+        "adb shell setprop vendor.debug.feature.forceEnableIMGO 1",
+        "adb shell setprop vendor.debug.camera.dump.p1.imgo 1",
+        "adb shell setprop vendor.debug.tpi.s 1",
+        "adb shell setprop vendor.debug.tpi.s.dump 1"
+      ],
+      "warning": null,
+      "category": "数据抓取",
+      "path": null
+    },
+    "TPI数据": {
+      "name": "TPI数据",
+      "description": "抓取TPI（图像处理接口）数据",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop debug.cam.drawid 1",
+        "adb shell rm -rf /data/vendor/dump/*",
+        "adb shell mkdir /data/vendor/dump",
+        "adb shell setprop vendor.debug.tpi.s 1",
+        "adb shell setprop vendor.debug.tpi.s.dump 1"
+      ],
+      "warning": null,
+      "category": "数据抓取",
+      "path": null
+    }
+  },
+  "系统追踪": {
+    "Systrace": {
+      "name": "Systrace",
+      "description": "启用系统追踪(Systrace)功能",
+      "commands": [
+        "adb root",
+        "adb shell setenforce 0",
+        "adb shell setprop vendor.systrace.camera.Dispatcher 1",
+        "adb shell setprop debug.atrace.tags.enableflags 1024"
+      ],
+      "warning": null,
+      "category": "系统追踪",
+      "path": null
+    }
+  },
+  "设备管理": {
+    "跳过向导": {
+      "name": "跳过向导",
+      "description": "跳过Android设置向导",
+      "commands": [
+        "adb shell pm disable com.google.android.setupwizard",
+        "adb shell settings put secure user_setup_complete 1",
+        "adb shell settings put global device_provisioned 1"
+      ],
+      "warning": null,
+      "category": "设备管理",
+      "path": null
+    },
+    "OEM解锁": {
+      "name": "OEM解锁",
+      "description": "执行OEM解锁和用户数据擦除（警告：会清除数据！）",
+      "commands": [
+        "adb root",
+        "adb reboot bootloader",
+        "fastboot oem tran_skip_confirm_key",
+        "fastboot flashing unlock",
+        "fastboot erase userdata",
+        "fastboot erase metadata",
+        "fastboot reboot"
+      ],
+      "warning": "⚠️ 警告：此操作会清除所有用户数据！",
+      "category": "设备管理",
+      "path": null
+    }
+  },
+  "设备信息": {
+    "设备信息": {
+      "name": "设备信息",
+      "description": "获取设备基本信息",
+      "commands": [
+        "adb devices -l",
+        "adb shell getprop ro.product.model",
+        "adb shell getprop ro.build.version.release",
+        "adb shell getprop ro.build.version.sdk"
+      ],
+      "warning": null,
+      "category": "设备信息",
+      "path": null
+    },
+    "相机HAL": {
+      "name": "相机HAL",
+      "description": "检查相机HAL状态和属性",
+      "commands": [
+        "adb shell dumpsys media.camera | grep -A 5 -B 5 'Camera HAL'",
+        "adb shell getprop | grep camera"
+      ],
+      "warning": null,
+      "category": "设备信息",
+      "path": null
+    }
+  },
+  "测试": {
+    "666": {
+      "name": "666",
+      "description": "脚本",
+      "commands": [
+        "file:///C:/Users/12978/Desktop/python/adb_tool_pyside6/ADB_Tool_Package.zip"
+      ],
+      "warning": null,
+      "category": "测试",
+      "path": "C:/Users/12978/Desktop/python/adb_tool_pyside6/script/666.json"
+    }
+  }
+}
